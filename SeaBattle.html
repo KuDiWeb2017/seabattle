@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Морской бой</title>
+    <link rel="stylesheet" href="css/seaBattle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>-->
+
+    <script src="js/jqueryApp.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Морской бой</h1>
+        <button id="start">Начать игру</button>
+        <button id="startNew">Новая игра</button>
+    </header>
+
+    <!--        <img src="img/cherep.png" />-->
+    <!--    <img src="img/popugan_png.png" />-->
+    <!--    <img src="img/pirat.png" />-->
+    <!--    <img src="img/pirat2.png" />-->
+    <img id="vrungel" src="img/vrungel.png" />
+
+    <!--    <img src="img/rul.png" />-->
+
+    <!--    <img src="img/parret2.png" />-->
+    <div id="ships">
+        <div class="draggable corabl palub4">
+            <div class="parus p1"></div>
+            <div class="parus"></div>
+            <div class="parus "></div>
+            <div class="parus "></div>
+
+        </div>
+        <div class="draggable corabl palub3">
+            <div class="parus p1"></div>
+            <div class="parus"></div>
+            <div class="parus"></div>
+        </div>
+        <div class="draggable corabl palub3">
+            <div class="parus p1"></div>
+            <div class="parus"></div>
+            <div class="parus"></div>
+        </div>
+        <div class="draggable corabl palub2">
+            <div class="parus p1"></div>
+            <div class="parus"></div>
+        </div>
+        <div class="draggable corabl palub2">
+            <div class="parus p1"></div>
+            <div class="parus"></div>
+        </div>
+        <div class="draggable corabl palub2">
+            <div class="parus p1"></div>
+            <div class="parus"></div>
+        </div>
+
+        <div class="inline4">
+            <div class="draggable corabl palub1">
+                <div class="parus p11"></div>
+            </div>
+            <div class="draggable corabl palub1">
+                <div class="parus p11"></div>
+            </div>
+            <div class="draggable corabl palub1">
+                <div class="parus p11"></div>
+            </div>
+            <div class="draggable corabl palub1">
+                <div class="parus p11"></div>
+            </div>
+        </div>
+
+        <!--        <img src="../img/pushka.gif" id="pushka" class="draggable"/>-->
+        <div id="pushka"></div>
+        <div id="pushkaPirate"></div>
+    </div>
+
+<!--
+    <div id="coordAll">
+        <div id="coords">(координаты sea)</div>
+        <div id="coordsSh">(координаты ship)</div>
+        <div id="coordsTd">(координаты Td)</div>
+
+    </div>
+-->
+
+
+    <!--<div id="pole1">-->
+    <table class="droppable" id="sea">
+        <th></th>
+        <th id="H">Р</th>
+        <th>Е</th>
+        <th>С</th>
+        <th>П</th>
+        <th>У</th>
+        <th>Б</th>
+        <th>Л</th>
+        <th>И</th>
+        <th>К</th>
+        <th>А</th>
+        <tr>
+            <td class="N">1</td>
+            <td id="W"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">6</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">8</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">9</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">10</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <!--</div>-->
+    <!--<div>     -->
+    <table class="droppable" id="blackSea">
+        <th></th>
+        <th>Р</th>
+        <th>Е</th>
+        <th>С</th>
+        <th>П</th>
+        <th>У</th>
+        <th>Б</th>
+        <th>Л</th>
+        <th>И</th>
+        <th>К</th>
+        <th>А</th>
+        <tr>
+            <td class="N">1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">6</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">8</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">9</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="N">10</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <!--    </div> -->
+    <!--*******************PIRATE*****************    -->
+
+    <!--    <img src="img/pirat.png" />-->
+    <img src="img/pirat2.png" id="pirate" />
+
+    <div id="shipsPirate">
+        <div class="draggable corablP palub4" id="sh41">
+            <div class="parusP p1"></div>
+            <div class="parusP"></div>
+            <div class="parusP "></div>
+            <div class="parusP "></div>
+
+        </div>
+        <div class="draggable corablP palub3" id="sh31">
+            <div class="parusP p1"></div>
+            <div class="parusP"></div>
+            <div class="parusP"></div>
+        </div>
+        <div class="draggable corablP palub3" id="sh32">
+            <div class="parusP p1"></div>
+            <div class="parusP"></div>
+            <div class="parusP"></div>
+        </div>
+        <div class="draggable corablP palub2" id="sh21">
+            <div class="parusP p1"></div>
+            <div class="parusP"></div>
+        </div>
+        <div class="draggable corablP palub2" id="sh22">
+            <div class="parusP p1"></div>
+            <div class="parusP"></div>
+        </div>
+        <div class="draggable corablP palub2" id="sh23">
+            <div class="parusP p1"></div>
+            <div class="parusP"></div>
+        </div>
+
+        <div class="inline4">
+            <div class="draggable corablP palub1" id="sh11">
+                <div class="parusP p11"></div>
+            </div>
+            <div class="draggable corablP palub1" id="sh12">
+                <div class="parusP p11"></div>
+            </div>
+            <div class="draggable corablP palub1" id="sh13">
+                <div class="parusP p11"></div>
+            </div>
+            <div class="draggable corablP palub1" id="sh14">
+                <div class="parusP p11"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <img id="sunduk" src="img/sunduk.png" />
+    <img id="flag" src="img/flag_pirat.gif" />
+
+
+
+
+    <!--********************************************-->
+
+    <audio id="MyFire">
+    <source src="Sounds/MyFire.wav" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="MyShot">
+    <source src="Sounds/MyShot.wav" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="EnemyFire">
+    <source src="Sounds/EnemyFire.wav" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="EnemyShot">
+    <source src="Sounds/EnemyShot.wav" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="Splash">
+    <source src="Sounds/Splash.wav" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="YouLost">
+    <source src="Sounds/YouLost.wav" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="YouWin">
+    <source src="Sounds/YouWin.wav" type="audio/wav" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="Mazila">
+    <source src="Sounds/Mazila.mp3" type="audio/mp3" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="LeftRul">
+    <source src="Sounds/LeftRul.mp3" type="audio/mp3" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="Abordag">
+    <source src="Sounds/Abordag.mp3" type="audio/mp3" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="Grebiy">
+    <source src="Sounds/Grebiy.mp3" type="audio/mp3" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="NeitrSea">
+    <source src="Sounds/NeitrSea.mp3" type="audio/mp3" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="Popal">
+    <source src="Sounds/Popal.mp3" type="audio/mp3" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="ShotNo">
+    <source src="Sounds/ShotNo.mp3" type="audio/mp3" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+    <audio id="NaVerh">
+    <source src="Sounds/NaVerh.mp3" type="audio/mp3" >
+        Тег audio не поддерживается вашим браузером. 
+ </audio>
+
+    <!--     <img src="img/flag_pirat.gif"/> -->
+
+    <div id="talkVrungel"></div>
+    <div id="talkPirate"></div>
+
+
+    <script src="js/seaBattle.js"></script>
+</body>
+
+</html>
